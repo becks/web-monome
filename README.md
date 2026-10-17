@@ -20,7 +20,7 @@ You need a Shield running norns with MODS support and Python 3, on the same netw
 
    ```sh
    cd ~/dust/code
-   git clone https://github.com/YOUR-USERNAME/web-monome.git web-monome
+   git clone https://github.com/becks/web-monome.git web-monome
    cd web-monome
    bash install.sh
    ```
