@@ -1,4 +1,4 @@
--- web-monome 0.1.2: virtual devices for the standard norns Grid/Arc API.
+-- web-monome: virtual devices for the standard norns Grid/Arc API.
 local mods = require 'core/mods'
 local G = require 'core/grid'
 local A = require 'core/arc'

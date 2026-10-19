@@ -1,0 +1,13 @@
+{
+  "name": "web monome",
+  "short_name": "web monome",
+  "description": "Browser Grid and Arc for norns",
+  "start_url": "/",
+  "display": "fullscreen",
+  "orientation": "any",
+  "background_color": "#161716",
+  "theme_color": "#161716",
+  "icons": [
+    {"src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"}
+  ]
+}

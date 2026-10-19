@@ -1,4 +1,4 @@
-# web monome — 0.1.2 for Norns Shield
+# web monome for Norns Shield
 
 A browser-based Grid 128 and four-ring Arc for Mac, iPad and Android tablets.
 The page runs on your Shield: no TouchOSC, Web MIDI, cloud service or account is required.
@@ -9,14 +9,13 @@ This is not an official Monome product.
 
 You need a Shield running norns with MODS support and Python 3, on the same network as your browser. Internet access on the Shield is needed to clone the repository and install `python3-aiohttp` if missing.
 
-1. Publish this repository to GitHub, or use the URL of an existing copy.
-2. Connect to your Shield from Terminal on your Mac:
+1. Connect to your Shield from Terminal on your Mac:
 
    ```sh
    ssh we@norns.local
    ```
 
-3. Run these commands on the Shield, replacing `YOUR-USERNAME` with the repository owner:
+2. Run these commands on the Shield:
 
    ```sh
    cd ~/dust/code
@@ -27,10 +26,10 @@ You need a Shield running norns with MODS support and Python 3, on the same netw
 
    If a `web-monome` folder already exists, keep it as a backup before cloning. The installation path must be `~/dust/code/web-monome`, without a second nested folder. The installer uses sudo to install `python3-aiohttp` if needed, creates `web-monome.service` and enables automatic startup. It does not modify norns core or musical scripts.
 
-4. On norns, open **SYSTEM → MODS**, enable **WEB-MONOME**, then restart norns.
-5. In **SYSTEM → DEVICES → GRID**, assign **web grid 128** to port 1. In **ARC**, assign **web arc 4** to port 1. The mod automatically uses a free port but preserves existing assignments.
-6. Open **http://norns.local:8088** in your browser. If the name does not resolve, find the Shield's IP address in SYSTEM → WIFI and use `http://YOUR-NORNS-IP:8088`.
-7. Load **SELECT → web-monome → web-monome** to test the controller. The exact menu path depends on your norns version. Grid presses light up keys, and Arc movements move the ring indicators. Then load your musical script normally.
+3. On norns, open **SYSTEM → MODS**, enable **WEB-MONOME**, then restart norns.
+4. In **SYSTEM → DEVICES → GRID**, assign **web grid 128** to port 1. In **ARC**, assign **web arc 4** to port 1. The mod automatically uses a free port but preserves existing assignments.
+5. Open **http://norns.local:8088** in your browser. If the name does not resolve, find the Shield's IP address in SYSTEM → WIFI and use `http://YOUR-NORNS-IP:8088`.
+6. Load **SELECT → web-monome → web-monome** to test the controller. The exact menu path depends on your norns version. Grid presses light up keys, and Arc movements move the ring indicators. Then load your musical script normally.
 
 If you install from a ZIP instead, transfer the ZIP with `scp` and extract it on the Shield. Avoid copying individual files through Samba if transfers produce empty or null-filled files.
 
@@ -39,9 +38,12 @@ If you install from a ZIP instead, transfer the ZIP with `scp` and extract it on
 Turn on norns, load a script and open the bookmarked page. Connection is automatic. **Grid**, **Arc** and **Both** change the visible controls; the browser remembers your choice.
 
 - **Grid:** press and hold one or more keys on a touchscreen. Each finger holds its original key until released, as on a physical controller. A mouse holds only one key at a time; multi-key gestures require a touchscreen.
-- **Arc:** drag vertically on a ring. Up increases the value; down decreases it. You can also use the mouse wheel, or arrow keys when a ring has focus. Hold Shift while dragging for finer adjustment. Movement is relative, not an absolute position.
+- **Arc:** drag vertically on a ring. Up increases the value; down decreases it. You can also use the mouse wheel, or arrow keys when a ring has focus. For finer adjustment, turn on **FINE** above the rings or hold Shift while dragging. Movement is relative, not an absolute position.
 - **Press:** the button below each ring sends an Arc key event for scripts that use it.
-- **Fullscreen:** use the ⛶ button. If unsupported, use your tablet's fullscreen option or Add to Home Screen.
+- **Themes:** pick one from the menu in the header: Light, Graphite (dark), Amber, Ocean, or Night (dim red for dark rooms). **Auto** follows the system light/dark setting. The browser remembers your choice, and themes also change the LED colors.
+- **Fullscreen:** use the ⛶ button. If unsupported, use Add to Home Screen. On iPad this opens the controller without browser bars. On Android, Chrome may open it as a normal tab, because installing a web app requires HTTPS.
+- **Screen lock:** browsers only allow a page to keep the screen awake over HTTPS, so set your tablet's auto-lock to a long interval or Never while playing.
+- **Haptics:** on Android, grid and Arc button presses give a short vibration. iPad does not support this from a web page.
 - Only one browser can control the Shield at a time. Close the page on your Mac before switching to a tablet.
 - Losing focus, changing views, disconnecting or missing heartbeats releases held keys. The page reconnects automatically.
 - Audio stays on the Shield; it is not streamed to the browser.
@@ -77,7 +79,7 @@ git pull --ff-only
 sudo systemctl restart web-monome
 ```
 
-Also restart norns when `lib/mod.lua` changes, then reload the browser page.
+Also restart norns when `lib/mod.lua` changes. Browser files are served with `no-cache`, so a normal page reload picks up the new version.
 
 ## Removal
 
@@ -97,7 +99,7 @@ Browser → WebSocket on port 8088 → Python aiohttp server → loopback OSC on
 
 References: [norns](https://github.com/monome/norns) core modules and [norns-example-mod](https://github.com/monome/norns-example-mod).
 
-Run server tests from the project directory (requires aiohttp):
+Run server tests from the project directory (requires aiohttp). They use free ports, so they also run on a Shield where the service is active:
 
 ```sh
 python3 -m unittest discover -s tests -p 'test_*.py' -v

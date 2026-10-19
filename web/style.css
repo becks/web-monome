@@ -1,0 +1,609 @@
+/* Themes: every color lives in these tokens. The canvas reads the --grid-*, --led-*,
+   --arc-* and --pressed tokens too, so a theme also restyles the LEDs. */
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+  --bg: #dedfdd;
+  --bg-glow: #f8f8f6;
+  --bg-mid: #e8e9e6;
+  --bg-edge: #c9cbc8;
+  --bg-lines: #74787512;
+  --text: #252625;
+  --muted: #747774;
+  --faint: #8a8d87;
+  --control: #e8e9e6;
+  --control-text: #383a37;
+  --control-hover: #f5f5f2;
+  --border: #bfc1bd;
+  --border-strong: #969a94;
+  --active: #555854;
+  --active-text: #fff;
+  --active-border: #414440;
+  --nav: #d7d9d5;
+  --status: #d9dbd7;
+  --status-ready: #f4f5f1;
+  --status-ready-text: #3d423d;
+  --surface-a: #f5f6f3;
+  --surface-b: #d3d5d0;
+  --surface-border: #afb2ac;
+  --surface-shine: #ffffff8f;
+  --shadow: #4b50422b;
+  --ring: #e7e8e4;
+  --focus: #4c504b;
+  --grid-bg: #bcbeba;
+  --grid-edge: #9b9f98;
+  --led-off: #676a67;
+  --led-on: #fefefe;
+  --pressed: #ffffff;
+  --arc-outer: #c8cac6;
+  --arc-outer-line: #a3a6a0;
+  --arc-hub: #e8e9e6;
+  --arc-hub-line: #b8bbb5;
+  --arc-label: #595d57;
+}
+
+/* Graphite: dark stage theme with warm white LEDs. */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #161716;
+  --bg-glow: #2a2c2a;
+  --bg-mid: #1c1d1c;
+  --bg-edge: #0e0f0e;
+  --bg-lines: #ffffff08;
+  --text: #e6e6e1;
+  --muted: #8f928c;
+  --faint: #6c6f6a;
+  --control: #252725;
+  --control-text: #d8d9d4;
+  --control-hover: #30332f;
+  --border: #3a3d39;
+  --border-strong: #5c605a;
+  --active: #e6e6e1;
+  --active-text: #161716;
+  --active-border: #e6e6e1;
+  --nav: #1f201f;
+  --status: #222422;
+  --status-ready: #2c302b;
+  --status-ready-text: #cfe8c8;
+  --surface-a: #242624;
+  --surface-b: #161816;
+  --surface-border: #343733;
+  --surface-shine: #ffffff0d;
+  --shadow: #00000080;
+  --ring: #1d1f1d;
+  --focus: #e6e6e1;
+  --grid-bg: #0d0e0d;
+  --grid-edge: #2c2f2b;
+  --led-off: #2a2c2a;
+  --led-on: #f6f3e6;
+  --pressed: #ffffff;
+  --arc-outer: #151615;
+  --arc-outer-line: #30332f;
+  --arc-hub: #232523;
+  --arc-hub-line: #3a3d39;
+  --arc-label: #9a9d97;
+}
+
+/* Amber: walnut body and orange varibright LEDs. */
+[data-theme="amber"] {
+  color-scheme: dark;
+  --bg: #1d1510;
+  --bg-glow: #3a2a1d;
+  --bg-mid: #241a13;
+  --bg-edge: #120d09;
+  --bg-lines: #ffb13b0a;
+  --text: #f3dfc4;
+  --muted: #a8896a;
+  --faint: #7f6650;
+  --control: #2c2018;
+  --control-text: #ecd2ae;
+  --control-hover: #3a2a1e;
+  --border: #4a3626;
+  --border-strong: #6e5139;
+  --active: #ffad3a;
+  --active-text: #1d1510;
+  --active-border: #ffad3a;
+  --nav: #251b14;
+  --status: #2a1f17;
+  --status-ready: #3b2a1b;
+  --status-ready-text: #ffc675;
+  --surface-a: #33251a;
+  --surface-b: #1e1610;
+  --surface-border: #4a3626;
+  --surface-shine: #ffd29a14;
+  --shadow: #00000080;
+  --ring: #261c14;
+  --focus: #ffad3a;
+  --grid-bg: #120c08;
+  --grid-edge: #3a2a1d;
+  --led-off: #3a2a1c;
+  --led-on: #ffb341;
+  --pressed: #fff1d6;
+  --arc-outer: #17100b;
+  --arc-outer-line: #3a2a1d;
+  --arc-hub: #2c2018;
+  --arc-hub-line: #4a3626;
+  --arc-label: #c79a63;
+}
+
+/* Ocean: deep blue with cyan LEDs. */
+[data-theme="ocean"] {
+  color-scheme: dark;
+  --bg: #0e1620;
+  --bg-glow: #1c3044;
+  --bg-mid: #122030;
+  --bg-edge: #080d14;
+  --bg-lines: #5fd4ff0a;
+  --text: #dcecf6;
+  --muted: #7d98ad;
+  --faint: #5d7487;
+  --control: #172636;
+  --control-text: #cfe3f0;
+  --control-hover: #1f3346;
+  --border: #2a4157;
+  --border-strong: #3f5d78;
+  --active: #5fd4ff;
+  --active-text: #0e1620;
+  --active-border: #5fd4ff;
+  --nav: #132131;
+  --status: #152536;
+  --status-ready: #1b3247;
+  --status-ready-text: #9be6ff;
+  --surface-a: #1a2b3d;
+  --surface-b: #0f1a26;
+  --surface-border: #2a4157;
+  --surface-shine: #9be6ff12;
+  --shadow: #00000080;
+  --ring: #132232;
+  --focus: #5fd4ff;
+  --grid-bg: #070c12;
+  --grid-edge: #1f3346;
+  --led-off: #1a2a3a;
+  --led-on: #6fdcff;
+  --pressed: #e6f9ff;
+  --arc-outer: #0a121b;
+  --arc-outer-line: #1f3346;
+  --arc-hub: #172636;
+  --arc-hub-line: #2a4157;
+  --arc-label: #7fb8d6;
+}
+
+/* Night: black and dim red, for dark rooms; keeps your eyes adapted to the dark. */
+[data-theme="night"] {
+  color-scheme: dark;
+  --bg: #050202;
+  --bg-glow: #160606;
+  --bg-mid: #0a0303;
+  --bg-edge: #000;
+  --bg-lines: #ff2a1a06;
+  --text: #d8463a;
+  --muted: #8a2d26;
+  --faint: #6a221d;
+  --control: #120505;
+  --control-text: #c4433a;
+  --control-hover: #1c0807;
+  --border: #2e0d0b;
+  --border-strong: #4d1612;
+  --active: #8f241c;
+  --active-text: #0a0202;
+  --active-border: #8f241c;
+  --nav: #0c0303;
+  --status: #100404;
+  --status-ready: #1d0807;
+  --status-ready-text: #e0574b;
+  --surface-a: #120505;
+  --surface-b: #070202;
+  --surface-border: #2a0c0a;
+  --surface-shine: #ff3a2a0a;
+  --shadow: #000000a0;
+  --ring: #0c0303;
+  --focus: #d8463a;
+  --grid-bg: #030101;
+  --grid-edge: #200907;
+  --led-off: #1a0605;
+  --led-on: #ff3b2b;
+  --pressed: #ff8a7f;
+  --arc-outer: #050101;
+  --arc-outer-line: #200907;
+  --arc-hub: #100404;
+  --arc-hub-line: #2a0c0a;
+  --arc-label: #8a2d26;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font: 500 14px "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+  --mono: 500 12px ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  padding: clamp(16px, 3vw, 42px) clamp(12px, 5vw, 76px);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  color: var(--text);
+  background-color: var(--bg);
+  background-image: radial-gradient(ellipse at 50% -20%, var(--bg-glow) 0, var(--bg-mid) 42%, var(--bg-edge) 100%);
+  transition: background-color .2s ease, color .2s ease;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--bg-lines) 1px, transparent 1px),
+    linear-gradient(90deg, var(--bg-lines) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+
+/* Header */
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  max-width: 1300px;
+  width: 100%;
+  align-self: center;
+}
+
+h1 {
+  font-size: 20px;
+  letter-spacing: -1px;
+  margin: 0;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+h1::before {
+  content: "";
+  display: block;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--led-on);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--led-on) 30%, transparent), 0 1px 6px color-mix(in srgb, var(--led-on) 50%, transparent);
+}
+
+h1 small {
+  font: 500 10px ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color: var(--muted);
+  letter-spacing: 1.4px;
+  padding-left: 12px;
+  border-left: 1px solid var(--border);
+}
+
+.tools {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Controls */
+
+button,
+select {
+  font: var(--mono);
+  letter-spacing: .1px;
+  background: var(--control);
+  color: var(--control-text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 9px 13px;
+  cursor: pointer;
+  box-shadow: 0 1px 1px var(--shadow);
+  transition: background .16s ease, border-color .16s ease, transform .16s ease, box-shadow .16s ease;
+}
+
+button:hover,
+select:hover {
+  background: var(--control-hover);
+  border-color: var(--border-strong);
+  box-shadow: 0 3px 8px var(--shadow);
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+button:focus-visible,
+select:focus-visible,
+canvas:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 4px;
+}
+
+button.active,
+button[aria-pressed="true"] {
+  background: var(--active);
+  color: var(--active-text);
+  border-color: var(--active-border);
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 28px;
+  background-image:
+    linear-gradient(45deg, transparent 50%, currentColor 50%),
+    linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position: calc(100% - 15px) 52%, calc(100% - 10px) 52%;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+}
+
+nav {
+  display: flex;
+  gap: 5px;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: var(--nav);
+}
+
+nav button {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+nav button:hover {
+  border-color: var(--border-strong);
+  box-shadow: none;
+}
+
+#status {
+  font: 500 11px ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color: var(--muted);
+  padding: 7px 10px;
+  border-radius: 99px;
+  background: var(--status);
+}
+
+#status.ready {
+  color: var(--status-ready-text);
+  background: var(--status-ready);
+  box-shadow: inset 0 0 0 1px var(--border);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Panels */
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+  max-width: 1300px;
+  align-self: center;
+}
+
+.surface {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--surface-border);
+  border-radius: 22px;
+  padding: clamp(12px, 2.2vw, 30px);
+  background: linear-gradient(145deg, var(--surface-a), var(--surface-b));
+  box-shadow: 0 18px 55px var(--shadow), 0 2px 3px var(--shadow);
+}
+
+.surface::after {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1px solid var(--surface-shine);
+  border-radius: 16px;
+  pointer-events: none;
+}
+
+.label {
+  position: relative;
+  z-index: 1;
+  font: 500 10px ui-monospace, "SFMono-Regular", Menlo, monospace;
+  letter-spacing: 1.5px;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.label > span:last-child {
+  color: var(--faint);
+}
+
+.label button {
+  font-size: 10px;
+  letter-spacing: 1px;
+  padding: 4px 9px;
+  text-transform: uppercase;
+}
+
+canvas {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#grid {
+  aspect-ratio: 2;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 1px var(--grid-edge);
+}
+
+#arcs {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(8px, 2.3vw, 34px);
+}
+
+.ring {
+  padding: clamp(3px, .7vw, 8px);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--ring);
+  box-shadow: inset 0 1px var(--surface-shine);
+}
+
+.ring canvas {
+  aspect-ratio: 1;
+}
+
+.ring button {
+  font-size: 10px;
+  margin: 4px 0 0;
+  padding: 6px 13px;
+  touch-action: none;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+}
+
+.ring button:active {
+  background: var(--active);
+  border-color: var(--active-border);
+  color: var(--active-text);
+}
+
+/* Footer */
+
+footer {
+  max-width: 1300px;
+  width: 100%;
+  align-self: center;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--muted);
+  font: 500 10px ui-monospace, "SFMono-Regular", Menlo, monospace;
+  letter-spacing: .15px;
+  flex-wrap: wrap;
+}
+
+#notice {
+  font: 500 11px ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color: var(--muted);
+  min-height: 16px;
+  margin: 0;
+  text-align: center;
+}
+
+/* Views */
+
+body[data-view="grid"] #arcPanel,
+body[data-view="arc"] #gridPanel {
+  display: none;
+}
+
+body[data-view="both"] #arcPanel {
+  max-width: 850px;
+  width: 100%;
+  align-self: center;
+}
+
+body[data-view="arc"] #arcPanel {
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 14px 10px;
+    gap: 18px;
+  }
+
+  header {
+    gap: 12px;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+
+  h1 small {
+    display: none;
+  }
+
+  #status {
+    order: 3;
+  }
+
+  button,
+  select {
+    padding: 8px 10px;
+  }
+
+  select {
+    padding-right: 26px;
+  }
+
+  .surface {
+    border-radius: 15px;
+    padding: 11px;
+  }
+
+  .surface::after {
+    inset: 4px;
+    border-radius: 11px;
+  }
+
+  #arcs {
+    gap: 4px;
+  }
+
+  .ring {
+    padding: 2px;
+    border-radius: 8px;
+  }
+
+  .label {
+    font-size: 8px;
+    margin-bottom: 10px;
+  }
+
+  .ring button,
+  .label button {
+    padding: 5px 7px;
+    font-size: 8px;
+  }
+
+  footer {
+    line-height: 1.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
